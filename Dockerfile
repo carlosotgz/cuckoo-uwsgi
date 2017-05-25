@@ -1,4 +1,4 @@
-FROM cuckoo:2.0
+FROM carlosotgz/cuckoo:2.0
 
 MAINTAINER Carlos Ortigoza Dempster
 
