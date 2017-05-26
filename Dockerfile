@@ -1,6 +1,6 @@
 FROM carlosotgz/cuckoo:2.0
 
-MAINTAINER Carlos Ortigoza Dempster
+MAINTAINER Carlos Ortigoza Dempster <carlos.otgz@gmail.com>
 
 RUN apk add --no-cache uwsgi uwsgi-python
 
