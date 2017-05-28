@@ -1,4 +1,4 @@
-FROM carlosotgz/cuckoo:2.0
+FROM carlosotgz/cuckoo:2.0-rooter
 
 MAINTAINER Carlos Ortigoza Dempster <carlos.otgz@gmail.com>
 
