@@ -24,15 +24,15 @@ case "$1" in
 	web )
 		/usr/sbin/uwsgi --socket 127.0.0.1:${PORT:=8001} \
 						--master --enable-threads \
-						--processes ${PROCESSES:=1} \
-						--threads ${THREADS:=1} \
+						--processes ${UWSGI_PROCESSES:=1} \
+						--threads ${UWSGI_THREADS:=1} \
 						--ini /etc/uwsgi/apps-enabled/cuckoo-web.ini
 	;;
 	api )
 		/usr/sbin/uwsgi --socket 127.0.0.1:${PORT:=8002} \
 						--master --enable-threads \
-						--processes ${PROCESSES:=1} \
-						--threads ${THREADS:=1} \
+						--processes ${UWSGI_PROCESSES:=1} \
+						--threads ${UWSGI_THREADS:=1} \
 						--ini /etc/uwsgi/apps-enabled/cuckoo-api.ini
 	;;
 esac
