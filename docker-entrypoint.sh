@@ -22,9 +22,17 @@ chown -R cuckoo:cuckoo $(ls /cuckoo/ | awk '{if($1 != "conf"){ print $1 }}') /tm
 # Launch the actual stuff
 case "$1" in
 	web )
-		/usr/sbin/uwsgi --socket 127.0.0.1:${WEB_PORT:=8001} --ini /etc/uwsgi/apps-enabled/cuckoo-web.ini
+		/usr/sbin/uwsgi --socket 127.0.0.1:${PORT:=8001} \
+						--master --enable-threads \
+						--processes ${PROCESSES:=1} \
+						--threads ${THREADS:=1} \
+						--ini /etc/uwsgi/apps-enabled/cuckoo-web.ini
 	;;
 	api )
-		/usr/sbin/uwsgi --socket 127.0.0.1:${API_PORT:=8002} --ini /etc/uwsgi/apps-enabled/cuckoo-api.ini
+		/usr/sbin/uwsgi --socket 127.0.0.1:${PORT:=8002} \
+						--master --enable-threads \
+						--processes ${PROCESSES:=1} \
+						--threads ${THREADS:=1} \
+						--ini /etc/uwsgi/apps-enabled/cuckoo-api.ini
 	;;
 esac
